@@ -855,10 +855,22 @@
 .contact-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) auto;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-main {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-qr-column {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  gap: 6px;
 }
 
 .contact-main-title {
@@ -977,6 +989,24 @@
   font-family: "Noto Sans SC", system-ui;
 }
 
+.space-text,
+.route-step span,
+.route-caption {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .route-gallery {
+    flex-wrap: wrap;
+    overflow: visible;
+  }
+
+  .route-item {
+    min-width: calc(50% - 4px);
+    flex: 1 1 calc(50% - 4px);
+  }
+}
+
 
     /* 底部悬浮按钮 & 页脚 */
 
@@ -1037,9 +1067,6 @@
         padding: 18px 18px 80px;
       }
 
-      .contact-inner {
-        grid-template-columns: minmax(0, 1.5fr) auto;
-      }
     }
   </style>
 </head>
@@ -1471,6 +1498,9 @@
               <div class="gallery-item">
                 <img src="indoor8.jpg" alt="㵘村内部环境图 8" />
               </div>
+              <div class="gallery-item">
+                <img src="indoor9.jpg" alt="㵘村内部环境图 9" />
+              </div>
             </div>
           </div>
         </div>
@@ -1481,7 +1511,7 @@
     <section id="contact">
       <div class="contact-card">
         <div class="contact-inner">
-          <div>
+          <div class="contact-main">
             <div class="section-label" style="color:#cbd5f5;">contact</div>
             <h2 class="contact-main-title">联系场地方 · 预约实地探村</h2>
             <p class="contact-main-text">
@@ -1524,7 +1554,7 @@
             </p>
           </div>
 
-          <div>
+          <div class="contact-qr-column">
             <div class="contact-qr-wrap">
               <img src="contact.jpg" alt="阿文微信二维码" />
             </div>
