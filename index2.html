@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>㵘村青年社区 · AI 青年创业村落</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="㵘村青年社区，位于杭州西湖西溪路华泰创业园 12 号楼 1 楼，面向 AI、教育、自媒体方向的青年创业者，提供长期创作与共创空间。" />
+
+  <!-- 可选字体：如果觉得加载略慢，可以删掉 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;600;700&family=Zhi+Mang+Xing&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f9f4ec;
+      --bg-soft: #fff8eb;
+      --card-bg: #ffffff;
+      --accent: #f97316;
+      --accent-soft: #ffedd5;
+      --accent-green: #16a34a;
+      --accent-green-soft: #dcfce7;
+      --text-main: #111827;
+      --text-soft: #6b7280;
+      --border-soft: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --shadow-strong: 0 18px 40px rgba(15, 23, 42, 0.13);
+      --font-body: "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-heading: "Noto Serif SC", "Noto Sans SC", serif;
+      --font-display: "Zhi Mang Xing", "Noto Sans SC", cursive;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      background: radial-gradient(circle at top, #fffaf0 0, var(--bg) 42%, #f3ece1 100%);
+      color: var(--text-main);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1,
+    h2,
+    .section-title,
+    .contact-main-title {
+      font-family: var(--font-heading);
+    }
+
+    .hero-badge,
+    .brand-title {
+      font-family: var(--font-display);
+    }
+
+    .section-label {
+      font-family: var(--font-heading);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 14px 14px 72px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    /* 顶部导航 */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(249, 244, 236, 0.98), rgba(249, 244, 236, 0.9));
+      border-bottom: 1px solid rgba(209, 213, 219, 0.7);
+    }
+
+    .nav-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 9px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(248, 250, 252, 0.9);
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+      background: #fff;
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-soft);
+      white-space: nowrap;
+    }
+
+    .nav-toggle {
+      border: none;
+      background: #fff;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(148, 163, 184, 0.4);
+      padding: 0;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 999px;
+      background: #111827;
+      transition: transform 0.18s ease, opacity 0.18s ease, translate 0.18s ease;
+    }
+
+    .nav-toggle span:nth-child(2) {
+      margin: 4px 0;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: rotate(45deg);
+      translate: 0 3px;
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      translate: 0 -3px;
+    }
+
+    .nav-menu {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 14px 10px;
+      display: none;
+    }
+
+    .nav-menu.open {
+      display: block;
+    }
+
+    .nav-menu-inner {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 6px 2px 4px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .nav-menu-inner::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link {
+      flex-shrink: 0;
+      padding: 7px 11px;
+      font-size: 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.8);
+      background: rgba(255, 255, 255, 0.9);
+      color: #374151;
+      white-space: nowrap;
+    }
+
+    .nav-link:first-child {
+      border-color: rgba(248, 113, 113, 0.3);
+      background: linear-gradient(135deg, #fff7ed, #fffbeb);
+    }
+
+    /* Hero 区 */
+
+    .hero {
+      margin-top: 10px;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #ffedd5 0, #fff7ed 36%, #fefce8 70%, #f9f4ec 100%);
+      padding: 14px 14px 16px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 10% 0, rgba(251, 191, 36, 0.18) 0, transparent 50%),
+        radial-gradient(circle at 90% 100%, rgba(45, 212, 191, 0.18) 0, transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hero-badge {
+      align-self: flex-start;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9a3412;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: rgba(248, 250, 252, 0.7);
+      border: 1px solid rgba(248, 113, 22, 0.35);
+    }
+
+    .hero-title {
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: #0f172a;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: #4b5563;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .tag-pill {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(254, 243, 199, 0.9);
+      border: 1px solid rgba(248, 163, 77, 0.5);
+      color: #92400e;
+    }
+
+    .tag-pill--green {
+      background: rgba(187, 247, 208, 0.9);
+      border-color: rgba(22, 163, 74, 0.4);
+      color: #166534;
+    }
+
+    .tag-pill--soft {
+      background: rgba(239, 246, 255, 0.9);
+      border-color: rgba(59, 130, 246, 0.35);
+      color: #1d4ed8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      font-size: 13px;
+      border-radius: 999px;
+      padding: 7px 14px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: #fff7ed;
+      box-shadow: 0 12px 28px rgba(249, 115, 22, 0.4);
+      font-weight: 600;
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.8);
+      color: #374151;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-weight: 500;
+    }
+
+    .btn-primary span.icon,
+    .btn-secondary span.icon {
+      font-size: 14px;
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .hero-logo-wrap {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(251, 146, 60, 0.35);
+      box-shadow: 0 12px 26px rgba(248, 171, 95, 0.5);
+    }
+
+    .hero-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+
+    .hero-note {
+      font-size: 11px;
+      color: #78350f;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(245, 158, 11, 0.6);
+    }
+
+    /* 通用区块样式 */
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .section-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 12% 12%, rgba(255, 237, 213, 0.9), rgba(255, 248, 237, 0.92) 42%, rgba(255, 255, 255, 0.95));
+      box-shadow: var(--shadow-soft);
+      padding: 14px 14px 14px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(248, 171, 95, 0.2);
+    }
+
+    .section-card + .section-card {
+      margin-top: 10px;
+    }
+
+    .section-header {
+      margin-bottom: 8px;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      font-size: 11px;
+      color: #6b7280;
+      background: #f9fafb;
+    }
+
+    .chip--accent {
+      border-color: rgba(248, 113, 22, 0.4);
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .chip--green {
+      border-color: rgba(22, 163, 74, 0.4);
+      background: #ecfdf3;
+      color: #166534;
+    }
+
+    .info-grid {
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .info-block {
+      border-radius: 14px;
+      border: 1px dashed rgba(248, 171, 95, 0.4);
+      padding: 9px 10px;
+      background: linear-gradient(135deg, rgba(255, 247, 237, 0.95), rgba(255, 255, 255, 0.9));
+    }
+
+    .info-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .info-body {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    ul.clean-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    ul.clean-list li {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+      display: flex;
+      align-items: flex-start;
+      gap: 4px;
+    }
+
+    ul.clean-list li::before {
+      content: "•";
+      color: #f97316;
+      font-size: 12px;
+      margin-top: 1px;
+    }
+
+    /* 村长团队 */
+
+    .people-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .person-card {
+      border-radius: 16px;
+      border: 1px solid rgba(248, 171, 95, 0.3);
+      padding: 10px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 240, 222, 0.9));
+    }
+
+    .person-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    .person-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .person-main {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .person-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .person-role {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .person-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .person-tag {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #4b5563;
+    }
+
+    .person-tag--accent {
+      background: #fffbeb;
+      color: #92400e;
+    }
+
+    .person-points {
+      list-style: none;
+      padding: 0;
+      margin-top: 3px;
+    }
+
+    .person-points li {
+      font-size: 12px;
+      color: var(--text-soft);
+      display: flex;
+      gap: 4px;
+    }
+
+    .person-points li::before {
+      content: "▹";
+      font-size: 11px;
+      color: #f97316;
+      margin-top: 1px;
+    }
+
+    .team-summary {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-top: 8px;
+    }
+
+    /* 村民画像 */
+
+    .persona-grid {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .persona-card {
+      border-radius: 16px;
+      border: 1px solid rgba(22, 163, 74, 0.25);
+      padding: 8px 9px;
+      background: linear-gradient(145deg, rgba(236, 253, 245, 0.92), rgba(255, 255, 255, 0.95));
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .persona-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fffbeb;
+      color: #f97316;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .persona-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .persona-text {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    /* 社区服务 */
+
+    .service-grid {
+      display: grid;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .service-card {
+      border-radius: 16px;
+      padding: 9px 10px;
+      border: 1px solid rgba(37, 99, 235, 0.2);
+      background: linear-gradient(160deg, rgba(239, 246, 255, 0.95), rgba(255, 255, 255, 0.96));
+    }
+
+    .service-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      gap: 6px;
+    }
+
+    .service-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .service-pill {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #ecfdf3;
+      color: #166534;
+    }
+
+    /* 空间 & 交通 */
+
+    .space-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .space-box {
+      border-radius: 16px;
+      padding: 9px 10px;
+      background: radial-gradient(circle at 80% 20%, rgba(187, 247, 208, 0.85), rgba(255, 255, 255, 0.95));
+      border: 1px solid rgba(22, 163, 74, 0.25);
+    }
+
+    .space-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .space-text {
+      font-size: 12px;
+      color: var(--text-soft);
+    }
+
+    .route-steps {
+      list-style: none;
+      padding: 0;
+      margin-top: 6px;
+    }
+
+    .route-step {
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 3px;
+      display: flex;
+      gap: 4px;
+    }
+
+    .route-step-index {
+      font-size: 11px;
+      color: #f97316;
+      font-weight: 600;
+    }
+
+    .route-gallery {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .route-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .route-item {
+      min-width: 150px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #f3f4f6;
+      border: 1px solid rgba(209, 213, 219, 0.8);
+      flex-shrink: 0;
+    }
+
+    .route-item img {
+      width: 100%;
+      height: 92px;
+      object-fit: cover;
+    }
+
+    .route-caption {
+      font-size: 11px;
+      padding: 4px 6px 6px;
+      color: #6b7280;
+    }
+
+    /* 内部环境九宫格 */
+
+    .gallery-grid {
+      margin-top: 8px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .gallery-item {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 80px;
+      object-fit: cover;
+    }
+
+    /* 联系方式 */
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      background: #0f172a;
+      padding: 14px;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-strong);
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at 0 0, rgba(248, 250, 252, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(56, 189, 248, 0.15) 0, transparent 52%),
+        radial-gradient(circle at 50% 100%, rgba(52, 211, 153, 0.18) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .contact-main-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #f9fafb;
+    }
+
+    .contact-main-text {
+      font-size: 13px;
+      color: #cbd5f5;
+      margin-bottom: 8px;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(248, 250, 252, 0.18);
+      font-size: 11px;
+      margin-bottom: 6px;
+    }
+
+    .contact-pill span.icon {
+      font-size: 14px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .contact-line {
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 7px 9px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-texts {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .contact-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .contact-value {
+      font-size: 13px;
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .contact-tip {
+      font-size: 11px;
+      color: #cbd5f5;
+      margin-top: 6px;
+    }
+
+    .contact-qr-wrap {
+      width: 100px;
+      height: 100px;
+      border-radius: 18px;
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.8);
+      overflow: hidden;
+    }
+
+    .contact-qr-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-qr-text {
+      font-size: 11px;
+      color: #e5e7eb;
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    /* 底部悬浮按钮 & 页脚 */
+
+    .floating-contact {
+      position: fixed;
+      right: 16px;
+      bottom: calc(env(safe-area-inset-bottom, 16px) + 8px);
+      z-index: 60;
+    }
+
+    .floating-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #f97316, #16a34a);
+      color: #fefce8;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.65);
+    }
+
+    .floating-contact-btn .icon {
+      font-size: 16px;
+    }
+
+    footer {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 10px 14px 18px;
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
+    }
+
+    footer span {
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    /* 响应式：稍大屏幕时微调布局 */
+
+    @media (min-width: 768px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+      }
+
+      .hero-title {
+        font-size: 24px;
+      }
+
+      main {
+        padding: 18px 18px 80px;
+      }
+
+      .contact-inner {
+        grid-template-columns: minmax(0, 1.5fr) auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="logo.jpg" alt="㵘村青年社区 logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">㵘村青年社区</div>
+          <div class="brand-sub">AI 青年创业村落 · 杭州西湖</div>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="展开导航">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <nav class="nav-menu">
+      <div class="nav-menu-inner">
+        <a class="nav-link" href="#about">社区介绍</a>
+        <a class="nav-link" href="#team">村长团队</a>
+        <a class="nav-link" href="#members">村民画像</a>
+        <a class="nav-link" href="#services">社区服务</a>
+        <a class="nav-link" href="#space">空间与交通</a>
+        <a class="nav-link" href="#contact">联系我们</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-card">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <p class="hero-badge">AI · 创业 · 村落</p>
+            <h1 class="hero-title">一个可以「长期创作」的青年村落</h1>
+            <p class="hero-subtitle">
+              㵘村青年社区（màn）位于杭州西溪路华泰创业园 12 号楼 1 楼。
+              我们把 AI、教育、自媒体和青年创业者聚在一起，让你在「家一样」的院子里办公、学习、搞项目。
+            </p>
+            <div class="hero-tags">
+              <span class="tag-pill">AI 创业 &amp; 教育</span>
+              <span class="tag-pill tag-pill--green">内容 / IP 长期创作</span>
+              <span class="tag-pill tag-pill--soft">同频青年社群</span>
+            </div>
+            <div class="hero-actions">
+              <a href="#contact" class="btn-primary">
+                <span class="icon">✨</span>
+                <span>预约实地探村</span>
+              </a>
+              <a href="#space" class="btn-secondary">
+                <span class="icon">📍</span>
+                <span>查看路线与空间</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-logo-wrap">
+              <img src="logo.jpg" alt="㵘村青年社区 logo" />
+            </div>
+            <div class="hero-note">地址：西溪路 698 号 · 华泰创业园 12 号楼 1 楼</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社区介绍 -->
+    <section id="about">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-label">about village</div>
+          <h2 class="section-title">㵘村青年社区 · 在杭州的一楼院子里创业</h2>
+          <p class="section-subtitle">
+            南承财神庙、北枕西溪湿地、西倚科创大走廊、东接天目里，四水环绕，既安静又有烟火气。
+          </p>
+        </div>
+
+        <p class="section-desc">
+          我们面向做
+          <strong>AI 工具、教育产品、自媒体 IP、知识服务</strong>
+          的青年团队和个人，提供长期办公、拍摄、路演、社群活动的综合空间。
+        </p>
+
+        <div class="chips-row">
+          <span class="chip chip--accent">更像「村落」而不是写字楼</span>
+          <span class="chip chip--green">只招同频、互相成就的村民</span>
+          <span class="chip">适合以项目为核心的长期创作</span>
+        </div>
+
+        <div class="info-grid">
+          <div class="info-block">
+            <div class="info-title">地理位置</div>
+            <div class="info-body">
+              浙江省杭州市西湖区西溪路 698 号 · 华泰创业园 12 号楼 1 楼 㵘村青年社区。
+              周边集中了科技公司、创意企业和高校资源。
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-title">你可以在这里做什么？</div>
+            <ul class="clean-list">
+              <li>做一人公司或小团队的「长期基地」</li>
+              <li>录课、拍内容、开分享会、路演试讲</li>
+              <li>和其他村民一起共创、组局、连资源</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 村长团队 -->
+    <section id="team">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-label">village chiefs</div>
+          <h2 class="section-title">三位「村长」，陪你一起把项目做厚</h2>
+          <p class="section-subtitle">
+            场地背后，是一支长期做教育 / 自媒体 / AI 的实战团队。你租的不是工位，而是一整套「脑 + 资源」。
+          </p>
+        </div>
+
+        <div class="people-grid">
+          <!-- 阿文 -->
+          <article class="person-card">
+            <div class="person-avatar">
+              <img src="awen.jpg" alt="阿文 形象照" />
+            </div>
+            <div class="person-main">
+              <div>
+                <div class="person-name">阿文 · 村长</div>
+                <div class="person-role">风浪文化科技 CEO · IP 全案操盘手</div>
+              </div>
+              <div class="person-tags">
+                <span class="person-tag person-tag--accent">西南大学经管系</span>
+                <span class="person-tag person-tag--accent">知识教育博主</span>
+                <span class="person-tag person-tag--accent">自媒体商业讲师</span>
+              </div>
+              <ul class="person-points">
+                <li>擅长从 0 到 1 打造知识 IP 与商业闭环</li>
+                <li>陪跑教育、内容、ToC 服务类项目落地变现</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 浩源 -->
+          <article class="person-card">
+            <div class="person-avatar">
+              <img src="haoyuan.jpg" alt="浩源 形象照" />
+            </div>
+            <div class="person-main">
+              <div>
+                <div class="person-name">浩源 · 村长</div>
+                <div class="person-role">浪尖大学创始人 · 青年商会副会长</div>
+              </div>
+              <div class="person-tags">
+                <span class="person-tag person-tag--accent">东北大学数学系</span>
+                <span class="person-tag person-tag--accent">知识教育博主</span>
+                <span class="person-tag person-tag--accent">全网 50w 粉丝</span>
+              </div>
+              <ul class="person-points">
+                <li>拆解大学生 &amp; 青年创业的成长路径</li>
+                <li>用 50w 粉丝矩阵，为村民嫁接渠道与流量</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 西风 -->
+          <article class="person-card">
+            <div class="person-avatar">
+              <img src="xifeng.jpg" alt="西风 形象照" />
+            </div>
+            <div class="person-main">
+              <div>
+                <div class="person-name">西风 · 村长</div>
+                <div class="person-role">浙江大学计算机系 · 青年演说家</div>
+              </div>
+              <div class="person-tags">
+                <span class="person-tag">知识教育博主</span>
+                <span class="person-tag person-tag--accent">全网 30w 粉丝</span>
+              </div>
+              <ul class="person-points">
+                <li>把 AI 工具落地到内容生产与盈利链路</li>
+                <li>搭建一人公司、数字游民的执行体系</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <p class="team-summary">
+          简单说：在㵘村，你可以办公、拍内容、做产品，也可以随时约「村长们」聊方向、调结构、磨文案、对方案。
+        </p>
+      </div>
+    </section>
+
+    <!-- 村民画像 -->
+    <section id="members">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-label">who lives here</div>
+          <h2 class="section-title">我们主要邀请这几类「村民」</h2>
+          <p class="section-subtitle">
+            拒绝泛泛社交，更希望同频——大家都在认真搞事，而不是来打卡。
+          </p>
+        </div>
+
+        <div class="persona-grid">
+          <article class="persona-card">
+            <div class="persona-icon">🌐</div>
+            <div>
+              <div class="persona-title">数字游民 / 自由职业者</div>
+              <p class="persona-text">
+                做咨询、课程、内容、技术服务，需要一个稳定、安静但不孤独的长期「根据地」。
+              </p>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-icon">📚</div>
+            <div>
+              <div class="persona-title">教育 / AI 工具产品团队</div>
+              <p class="persona-text">
+                做在线课程、AI 工具、学习社区，希望有线下试运营空间与种子用户场景。
+              </p>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-icon">🎥</div>
+            <div>
+              <div class="persona-title">内容创作者 &amp; IP 团队</div>
+              <p class="persona-text">
+                长期拍短视频、录播课、播客，需要固定机位、安静场地和可以随时拍的环境。
+              </p>
+            </div>
+          </article>
+
+          <article class="persona-card">
+            <div class="persona-icon">💡</div>
+            <div>
+              <div class="persona-title">在路上的创业者</div>
+              <p class="persona-text">
+                项目还在早期，但已经开始跑客户 / 做产品 / 拉团队，希望有人一起讨论和复盘。
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 社区服务 -->
+    <section id="services">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-label">services</div>
+          <h2 class="section-title">在㵘村，你能获得的不只是桌子</h2>
+          <p class="section-subtitle">
+            我们把「空间」和「服务」绑在一起，让你日常工作也像在一个小小的孵化器里。
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-title-row">
+              <div class="service-title">办公 &amp; 创作空间</div>
+              <span class="service-pill">日常基础</span>
+            </div>
+            <ul class="clean-list">
+              <li>开放办公区、会议区、路演区、休憩角</li>
+              <li>适合拍摄课程 / 访谈 / Vlog 的固定机位</li>
+              <li>高速 Wi-Fi、电源位充足、基础茶水</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-title-row">
+              <div class="service-title">活动 &amp; 共创</div>
+              <span class="service-pill">氛围搭建</span>
+            </div>
+            <ul class="clean-list">
+              <li>不定期分享会、路演日、闭门复盘局</li>
+              <li>村民之间组读书会、工作坊、联合项目</li>
+              <li>根据需求可定制小型发布会 / 见面会</li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-title-row">
+              <div class="service-title">陪跑 &amp; 资源对接</div>
+              <span class="service-pill">加速成长</span>
+            </div>
+            <ul class="clean-list">
+              <li>村长顾问团陪你看方向、拆增长路径</li>
+              <li>对接渠道、合作方、讲师 &amp; 服务商资源</li>
+              <li>IP 打造、课程设计、产品打磨等实战建议</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 空间与交通 -->
+    <section id="space">
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-label">space &amp; route</div>
+          <h2 class="section-title">怎么来㵘村 · 以及村里长什么样</h2>
+          <p class="section-subtitle">
+            第一次来，我们希望你能「一次就找到」：先看路线，再看看院子里的日常环境。
+          </p>
+        </div>
+
+        <div class="space-grid">
+          <div class="space-box">
+            <div class="space-title">园区 &amp; 周边</div>
+            <p class="space-text">
+              华泰创业园内，靠近亚朵酒店 / 浙江新宝行一侧入口。驾车可停园区停车场，步行可从西溪路方向进入。
+            </p>
+            <ul class="clean-list" style="margin-top:4px;">
+              <li>建议提前 5 分钟到达，便于办理访客登记</li>
+              <li>如遇正门关闭，可从侧门或后门进入园区</li>
+            </ul>
+          </div>
+
+          <div class="space-box">
+            <div class="space-title">从正门进入的 3 个步骤</div>
+            <ul class="route-steps">
+              <li class="route-step">
+                <span class="route-step-index">1.</span>
+                <span>从亚朵酒店 / 浙江新宝行方向进入华泰创业园正门。</span>
+              </li>
+              <li class="route-step">
+                <span class="route-step-index">2.</span>
+                <span>按园区指示牌前往「西溪探数」方向，一路直行。</span>
+              </li>
+              <li class="route-step">
+                <span class="route-step-index">3.</span>
+                <span>看到 12 号楼后，从一楼入口进入，即是㵘村青年社区。</span>
+              </li>
+            </ul>
+
+            <div class="route-gallery" aria-label="园区正门路线">
+              <div class="route-item">
+                <img src="guide1.jpg" alt="从亚朵酒店与浙江新宝行方向进入园区" />
+                <div class="route-caption">从亚朵酒店 / 浙江新宝行方向进入园区。</div>
+              </div>
+              <div class="route-item">
+                <img src="guide2.jpg" alt="进入西溪探数方向路线" />
+                <div class="route-caption">经过第一个路口，跟着「西溪探数」指示前行。</div>
+              </div>
+              <div class="route-item">
+                <img src="guide3.jpg" alt="正门与侧门后门进入园区路线" />
+                <div class="route-caption">正门关闭时，可从侧门或后门进入园区内部。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-box">
+            <div class="space-title">从后门进入的 3 个步骤</div>
+            <ul class="route-steps">
+              <li class="route-step">
+                <span class="route-step-index">1.</span>
+                <span>从后门通道进入园区，注意园区行车指示。</span>
+              </li>
+              <li class="route-step">
+                <span class="route-step-index">2.</span>
+                <span>沿「㵘村青年社区 / 12 号楼」相关标识向前。</span>
+              </li>
+              <li class="route-step">
+                <span class="route-step-index">3.</span>
+                <span>穿过玻璃门或侧门，抵达 12 号楼 1 楼，即为㵘村入口。</span>
+              </li>
+            </ul>
+
+            <div class="route-gallery" aria-label="园区后门路线">
+              <div class="route-item">
+                <img src="guide4.jpg" alt="从后门入口进入园区示意图" />
+                <div class="route-caption">从后门通道进入园区。</div>
+              </div>
+              <div class="route-item">
+                <img src="guide5.jpg" alt="后门进入后沿指示牌寻找路径" />
+                <div class="route-caption">沿指示牌找到 12 号楼方向。</div>
+              </div>
+              <div class="route-item">
+                <img src="guide6.jpg" alt="后门路线最终进入 12 号楼实景" />
+                <div class="route-caption">进入 12 号楼 1 楼，即到㵘村青年社区。</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-box">
+            <div class="space-title">㵘村内部环境一瞥</div>
+            <p class="space-text">
+              日常办公区、路演区、会议室、休憩角、内容拍摄位、分享活动区……
+              每一处都围绕「长期创作」和「长期合作」设计。
+            </p>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img src="indoor1.jpg" alt="㵘村内部环境图 1" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor2.jpg" alt="㵘村内部环境图 2" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor3.jpg" alt="㵘村内部环境图 3" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor4.jpg" alt="㵘村内部环境图 4" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor5.jpg" alt="㵘村内部环境图 5" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor6.jpg" alt="㵘村内部环境图 6" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor7.jpg" alt="㵘村内部环境图 7" />
+              </div>
+              <div class="gallery-item">
+                <img src="indoor8.jpg" alt="㵘村内部环境图 8" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact">
+      <div class="contact-card">
+        <div class="contact-inner">
+          <div>
+            <div class="section-label" style="color:#cbd5f5;">contact</div>
+            <h2 class="contact-main-title">联系场地方 · 预约实地探村</h2>
+            <p class="contact-main-text">
+              想来 㵘村 实地感受一下氛围？或已经有项目在路上，需要一个「村落」一起走？
+              欢迎直接联系场地方，由村长团队为你安排到访、试坐与洽谈。
+            </p>
+            <div class="contact-pill">
+              <span class="icon">📅</span>
+              <span>建议提前预约 · 方便安排接待和引导</span>
+            </div>
+
+            <div class="contact-details">
+              <div class="contact-line">
+                <div class="contact-icon">👤</div>
+                <div class="contact-texts">
+                  <div class="contact-label">联系人</div>
+                  <div class="contact-value">阿文（黄文）</div>
+                </div>
+              </div>
+              <div class="contact-line">
+                <div class="contact-icon">☎️</div>
+                <div class="contact-texts">
+                  <div class="contact-label">电话 / 微信</div>
+                  <div class="contact-value">136 4838 1011</div>
+                </div>
+              </div>
+              <div class="contact-line">
+                <div class="contact-icon">📍</div>
+                <div class="contact-texts">
+                  <div class="contact-label">地址</div>
+                  <div class="contact-value">
+                    浙江省杭州市西湖区西溪路 698 号 · 华泰创业园 12 号楼 㵘村青年社区
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="contact-tip">
+              添加微信时备注「入村 + 姓名 + 方向」（如：入村 + 小张 + AI 教育），便于快速对接与安排时间。
+            </p>
+          </div>
+
+          <div>
+            <div class="contact-qr-wrap">
+              <img src="contact.jpg" alt="阿文微信二维码" />
+            </div>
+            <div class="contact-qr-text">扫码添加村长微信 · 入村咨询</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 底部悬浮联系按钮 -->
+  <div class="floating-contact">
+    <a href="#contact" class="floating-contact-btn">
+      <span class="icon">💬</span>
+      <span>入村咨询 · 微信直达</span>
+    </a>
+  </div>
+
+  <!-- 页脚 -->
+  <footer>
+    © <span>㵘村青年社区</span> · AI 青年创业村落 · 杭州西湖 · 华泰创业园
+  </footer>
+
+  <script>
+    const navToggle = document.querySelector(".nav-toggle");
+    const navMenu = document.querySelector(".nav-menu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    if (navToggle && navMenu) {
+      navToggle.addEventListener("click", () => {
+        const isOpen = navToggle.classList.toggle("open");
+        navMenu.classList.toggle("open", isOpen);
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navToggle.classList.remove("open");
+          navMenu.classList.remove("open");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
